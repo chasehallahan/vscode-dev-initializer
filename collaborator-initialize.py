@@ -8,27 +8,14 @@ HERE = Path(__file__).parent.resolve()
 EXT_FILE = HERE / "assets" / "vscode-extensions.txt"
 VS_SETTINGS_FILE = HERE.parent / ".vscode" / "settings.json"
 SETTINGS_FILE = HERE / "assets" / "settings.json"
-REQUIREMENTS_FILE = HERE / "assets" / "requirements.txt"
-
-# ─────────────────────────────────────────────────
-# Install Python requirements from requirements.txt
-# ─────────────────────────────────────────────────
-print("\n🔧 Installing Python requirements...\n")
-result = subprocess.run(
-    [sys.executable, "-m", "pip", "install", "-r", str(REQUIREMENTS_FILE), "-qqq"],
-    stderr=subprocess.PIPE,
-    text=True,
-)
-
-if result.returncode == 0:
-    print("✅ Required packages (if any) installed.")
-else:
-    print(f"❌ pip requirements install failed:\n{result.stderr}")
+USER_PS_PROFILE = Path.home() / "Documents" / "Microsoft.PowerShell_profile.ps1"
+PS_PROFILE = HERE / "assets" / "Microsoft.PowerShell_profile.ps1"
 
 # ─────────────────────────────────────────────────
 # Create or update .vscode/settings.json
 #     - Ensures local environment activation
 #     - Merges in project-level settings
+#     - Adds PS $PROFILE for venv activated note
 # ─────────────────────────────────────────────────
 print("\n🛠  Updating VS Code settings.json...\n")
 
@@ -65,6 +52,19 @@ else:
 with VS_SETTINGS_FILE.open("w") as f:
     json.dump(current_settings, f, indent=4)
 print("✅ VS Code settings updated.")
+
+_profile = PS_PROFILE.read_text(encoding="utf-8")
+_user_profile = (
+    USER_PS_PROFILE.read_text(encoding="utf-8") if not USER_PS_PROFILE.exists() else ""
+)
+
+# Merge Microsoft.PowerShell_profile.ps1 to user
+if _profile not in _user_profile:
+    if not _user_profile.endswith("\n") and _profile != "":
+        _user_profile += "\n"
+    _user_profile += _profile
+    USER_PS_PROFILE.write_text(_user_profile, encoding="utf-8")
+
 
 # ─────────────────────────────────────────────────
 # Install VS Code extensions listed in assets/
