@@ -1,0 +1,124 @@
+{
+    // =========================
+    // VS Code Settings
+    // =========================
+    // File Explorer
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "explorer.autoReveal": true,
+    "explorer.decorations.colors": true,
+    "explorer.decorations.badges": true,
+
+    // Workbench
+    "workbench.colorTheme": "Default Dark+",
+    "workbench.startupEditor": "none",
+    "workbench.editor.enablePreview": false,
+
+    // Editor (general)
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+      "other": "on",
+      "comments": "off",
+      "strings": "on"
+    },
+
+    // Debug
+    "debug.internalConsoleOptions": "openOnSessionStart",
+
+    // Terminal
+    "terminal.integrated.profiles.windows": {
+      "PowerShell": {
+        "source": "PowerShell",
+        "args": ["-NoExit", "-NoLogo"]
+      }
+    },
+    "terminal.integrated.defaultProfile.windows": "PowerShell",
+    "terminal.integrated.environmentChangesIndicator": "warnonly",
+    "terminal.integrated.shellIntegration.enabled": true,
+    "terminal.integrated.shellIntegration.showCommandGuide": true,
+    "terminal.integrated.suggest.enabled": true,
+    "terminal.integrated.enablePersistentSessions": false,
+    "terminal.integrated.confirmOnExit": "hasChildProcesses",
+    "terminal.integrated.confirmOnKill": "never",
+    "accessibility.signals.terminalBell": {
+      "sound": "off",
+      "announcement": "off"
+    },
+
+    // File Handling
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.autoSave": "onWindowChange",
+    "files.hotExit": "onExitAndWindowClose",
+
+    // =========================
+    // Language-Specific Settings
+    // =========================
+
+    "[python]": {
+      "editor.defaultFormatter": "ms-python.black-formatter",
+      "editor.formatOnSave": true,
+      "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports.ruff": "explicit"
+      }
+    },
+
+    "[json]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[html]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+    "[jsonc]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
+    },
+
+
+    // =========================
+    // Extension Settings
+    // =========================
+
+    // Python Extension
+    "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+    "python.terminal.activateEnvironment": true,
+    "python.terminal.activateEnvInCurrentTerminal": true,
+    "python.analysis.autoSearchPaths": true,
+    "python.analysis.exclude": ["**/.venv/**"],
+    "python.analysis.diagnosticSeverityOverrides": {
+      "reportUnusedImport": "none",
+      "reportUnusedVariable": "none",
+      "reportUnusedFunction": "none",
+      "reportUnusedClass": "none",
+      "reportDuplicateImport": "none"
+    },
+
+    // Black Formatter
+    "black-formatter.args": ["--skip-string-normalization"],
+    "black-formatter.showNotifications": "off",
+
+    // Ruff (linting + import-sorting)
+    "ruff.nativeServer": "on",
+    "ruff.lint.select": ["B", "C", "E", "F", "W", "I"],
+    "ruff.exclude": ["**/.venv/**"],
+    "ruff.lint.ignore": [
+      "E203",
+      "E266",
+      "E501",
+      "D100",
+      "D101",
+      "D102",
+      "D103",
+      "D104",
+      "D105",
+      "D106",
+      "D107"
+    ]
+  }
