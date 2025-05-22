@@ -1,15 +1,16 @@
+aykutsarac.jsoncrack-vscode
+charliermarsh.ruff
 christian-kohler.path-intellisense
 csstools.postcss
-daelonsuzuka.nicegui
 dbaeumer.vscode-eslint
 ecmel.vscode-html-css
 editorconfig.editorconfig
+esbenp.prettier-vscode
 eseom.nunjucks-template
 firefox-devtools.vscode-firefox-debug
+formulahendry.auto-close-tag
 formulahendry.auto-rename-tag
 formulahendry.code-runner
-geequlim.godot-tools
-marlinfirmware.auto-build
 mechatroner.rainbow-csv
 mgesbert.python-path
 mhutchie.git-graph
@@ -19,6 +20,7 @@ mrmlnc.vscode-postcss-sorting
 ms-dotnettools.csdevkit
 ms-dotnettools.csharp
 ms-dotnettools.vscode-dotnet-runtime
+ms-python.black-formatter
 ms-python.debugpy
 ms-python.python
 ms-python.vscode-pylance
@@ -34,6 +36,8 @@ neikeq.godot-csharp-vscode
 platformio.platformio-ide
 qub.qub-msbuild
 redhat.vscode-yaml
+ritwickdey.liveserver
 ronnidc.nunjucks
 tamasfe.even-better-toml
 vunguyentuan.vscode-postcss
+zignd.html-css-class-completion

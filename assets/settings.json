@@ -1,38 +1,32 @@
 {
-  // =========================
-  // VS Code Settings
-  // =========================
-  // File Explorer
   "explorer.confirmDragAndDrop": false,
   "explorer.confirmDelete": false,
   "explorer.autoReveal": true,
   "explorer.decorations.colors": true,
   "explorer.decorations.badges": true,
-
-  // Workbench
-  "workbench.colorTheme": "Default Dark+",
   "workbench.startupEditor": "none",
   "workbench.editor.enablePreview": false,
-
-  // Editor (general)
   "editor.formatOnSave": true,
   "editor.quickSuggestions": {
     "other": "on",
     "comments": "off",
     "strings": "on"
   },
-
-  // Debug
   "debug.internalConsoleOptions": "openOnSessionStart",
-
-  // Terminal
+  "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
   "terminal.integrated.profiles.windows": {
-    "PowerShell": {
+    "Windows PowerShell": {
       "source": "PowerShell",
-      "args": ["-NoExit", "-NoLogo", ". $PROFILE"]
+      "args": [
+        "-NoLogo",
+        "-NoExit",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-Command",
+        ". \"${env:LOCALAPPDATA}\\PowerShell\\Microsoft.PowerShell_profile.ps1\""
+      ]
     }
   },
-  "terminal.integrated.defaultProfile.windows": "PowerShell",
   "terminal.integrated.environmentChangesIndicator": "warnonly",
   "terminal.integrated.shellIntegration.enabled": true,
   "terminal.integrated.shellIntegration.showCommandGuide": true,
@@ -44,17 +38,10 @@
     "sound": "off",
     "announcement": "off"
   },
-
-  // File Handling
   "files.trimTrailingWhitespace": true,
   "files.insertFinalNewline": true,
   "files.autoSave": "onWindowChange",
   "files.hotExit": "onExitAndWindowClose",
-
-  // =========================
-  // Language-Specific Settings
-  // =========================
-
   "[python]": {
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true,
@@ -63,7 +50,6 @@
       "source.organizeImports.ruff": "explicit"
     }
   },
-
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
@@ -80,12 +66,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   },
-
-  // =========================
-  // Extension Settings
-  // =========================
-
-  // Python Extension
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
   "python.terminal.activateEnvironment": true,
   "python.terminal.activateEnvInCurrentTerminal": true,
@@ -98,12 +78,8 @@
     "reportUnusedClass": "none",
     "reportDuplicateImport": "none"
   },
-
-  // Black Formatter
   "black-formatter.args": ["--skip-string-normalization"],
   "black-formatter.showNotifications": "off",
-
-  // Ruff (linting + import-sorting)
   "ruff.nativeServer": "on",
   "ruff.lint.select": ["B", "C", "E", "F", "W", "I"],
   "ruff.exclude": ["**/.venv/**"],
@@ -119,5 +95,9 @@
     "D105",
     "D106",
     "D107"
-  ]
+  ],
+  "terminal.integrated.fontFamily": "DejaVu Sans Mono, Consolas, 'Courier New', monospace",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.lineHeight": 1.1,
+  "terminal.integrated.letterSpacing": 0.2
 }
